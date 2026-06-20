@@ -127,7 +127,7 @@ The demo MUST include several additional exaggerated AI placements that look rea
 
 ### Architecture
 
-- Lives under `web/src/features/demo/`. The route container applies `data-theme="jira"` (see [Design System › Theme Scoping](../design-system/#theme-scoping)).
+- Lives under `web/src/features/demo/`. The route container applies `data-theme="jira"` (see [Design System › Theme Scoping](../design-system/index.md#theme-scoping)).
 - Structure: `chrome/` (TopNav, Sidebar, AppShell), `board/` (Board, Column, Card, dnd), `issue/` (IssueDetail, ActivityFeed, DetailsPanel, StatusDropdown), `agent/` (AgentPanel, agent simulation engine), `rovo/` (CommandBar, AgentsRoster, Autopilot), `data/` (seed dataset, types), `store/` (state).
 - State managed with a lightweight store (Zustand or React context + reducer); the choice is finalized in change 0004.
 
@@ -192,7 +192,7 @@ Built from Design-System shadcn primitives restyled for Jira: `Dialog`/sheet for
 - Entirely client-side; no real backend, no network calls, no real LLM.
 - MUST feel real: realistic streaming/timing, draggable board, working transitions.
 - Timing MUST be injectable for deterministic tests; agent/autopilot timers MUST be fast-forwardable.
-- 100% test coverage (see [Architecture › Testing](../architecture/#testing--coverage)): store reducers, the agent engine (including cancellation and completion), autopilot start/stop, Ask Rovo selection, drag-to-transition logic, and reset MUST all be covered, using fake timers rather than real waits.
+- 100% test coverage (see [Architecture › Testing](../architecture/index.md#testing--coverage)): store reducers, the agent engine (including cancellation and completion), autopilot start/stop, Ask Rovo selection, drag-to-transition logic, and reset MUST all be covered, using fake timers rather than real waits.
 - MUST honor `prefers-reduced-motion` for card/agent animations.
 
 ## Open Questions

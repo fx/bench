@@ -125,7 +125,7 @@ The only logic in this layer is the reduced-motion gate: a single hook/util that
 
 - Two themes MUST be visually isolated within one SPA bundle.
 - Motion primitives MUST be the single source of easings/variants; feature code MUST NOT hand-roll easings.
-- 100% test coverage applies: every primitive, hook, and the token/theme switching logic MUST be unit-tested (see [Architecture › Testing](../architecture/#testing--coverage)). Visual styling that cannot be asserted in JSDOM MUST still have its conditional logic (class application, reduced-motion branching, count-up math) covered.
+- 100% test coverage applies: every primitive, hook, and the token/theme switching logic MUST be unit-tested (see [Architecture › Testing](../architecture/index.md#testing--coverage)). Visual styling that cannot be asserted in JSDOM MUST still have its conditional logic (class application, reduced-motion branching, count-up math) covered.
 
 ## Open Questions
 

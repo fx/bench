@@ -84,7 +84,7 @@ All content MUST be real (no "lorem ipsum", no TODO). Copy MUST follow the parod
 
 ### Architecture
 
-- Lives under `web/src/features/landing/`. The route container applies `data-theme="marketing"` (see [Design System › Theme Scoping](../design-system/#theme-scoping)).
+- Lives under `web/src/features/landing/`. The route container applies `data-theme="marketing"` (see [Design System › Theme Scoping](../design-system/index.md#theme-scoping)).
 - Composed of section components (`Nav`, `Hero`, `LogoCloud`, `FeatureBento`, `HowItWorks`, `Stats`, `Testimonials`, `Pricing`, `Faq`, `BigCta`, `Footer`), each a self-contained component.
 - Content (copy, feature list, testimonials, pricing, FAQ) MUST be defined as typed data modules (e.g. `features/landing/content.ts`) so it is testable and not hard-coded inside JSX.
 
@@ -126,7 +126,7 @@ Each section uses Design-System primitives (shadcn `Button`, `Accordion`, `Switc
 
 - Visuals MUST be premium and on-trend; parody is in copy only.
 - MUST honor `prefers-reduced-motion`.
-- 100% test coverage (see [Architecture › Testing](../architecture/#testing--coverage)): content data, the toggle/count-up/accordion logic, the demo-navigation wiring, and reduced-motion branches MUST all be covered.
+- 100% test coverage (see [Architecture › Testing](../architecture/index.md#testing--coverage)): content data, the toggle/count-up/accordion logic, the demo-navigation wiring, and reduced-motion branches MUST all be covered.
 - No external network calls; all assets (logos, avatars) MUST be local SVG/generated, not hotlinked.
 
 ## Open Questions
