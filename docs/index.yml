@@ -69,3 +69,10 @@ changes:
     spec: demo-jira-clone
     status: draft
     depends_on: ["0005", "0006"]
+  - id: "0008"
+    name: analyze-bench-run
+    path: changes/0008-analyze-bench-run.md
+    description: Run the analyze-bench-run skill as the final change and append its token/cost/agent/per-PR report to the end of the README.
+    spec: architecture
+    status: draft
+    depends_on: ["0001", "0002", "0003", "0004", "0005", "0006", "0007"]

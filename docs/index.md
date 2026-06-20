@@ -20,3 +20,4 @@
 | 0005 | [Demo Board](changes/0005-demo-board.md) | [Demo Jira Clone](specs/demo-jira-clone/) | draft | 0004 |
 | 0006 | [Demo Issue Detail](changes/0006-demo-issue-detail.md) | [Demo Jira Clone](specs/demo-jira-clone/) | draft | 0005 |
 | 0007 | [Demo Agent Features](changes/0007-demo-agent-features.md) | [Demo Jira Clone](specs/demo-jira-clone/) | draft | 0005, 0006 |
+| 0008 | [Analyze Bench Run](changes/0008-analyze-bench-run.md) | [Architecture](specs/architecture/) | draft | 0001, 0002, 0003, 0004, 0005, 0006, 0007 |
