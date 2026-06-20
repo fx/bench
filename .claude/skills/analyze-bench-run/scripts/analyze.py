@@ -54,12 +54,17 @@ def model_cost(model, inp, outp, cc5, cc1, cr):
 
 
 def parse_ts(s):
-    if not s:
+    if not s or not isinstance(s, str):
         return None
     try:
-        return datetime.datetime.fromisoformat(s.replace("Z", "+00:00"))
+        dt = datetime.datetime.fromisoformat(s.replace("Z", "+00:00"))
     except ValueError:
         return None
+    # Normalize naive timestamps to UTC so all datetimes are comparable
+    # (mixing naive and aware datetimes raises TypeError when sorting).
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=datetime.timezone.utc)
+    return dt
 
 
 def hm(seconds):
@@ -100,8 +105,9 @@ def analyze_log(path, model_hint=None):
             split = ccd.get("ephemeral_5m_input_tokens", 0) + ccd.get("ephemeral_1h_input_tokens", 0)
             a["cc5"] += max(0, u.get("cache_creation_input_tokens", 0) - split)
             a["turns"] += 1
-            if msg.get("model"):
-                a["model"] = msg["model"]
+            # Model may live on the message or inside usage; prefer message,
+            # fall back to usage, then keep any prior/meta-supplied value.
+            a["model"] = msg.get("model") or u.get("model") or a["model"]
         for blk in (msg.get("content") or []):
             if isinstance(blk, dict) and blk.get("type") == "tool_use":
                 a["tools"] += 1
@@ -220,7 +226,10 @@ def main():
     if not pdir or not os.path.isdir(pdir):
         sys.exit(f"error: could not find session log dir (tried {pdir}). "
                  f"Pass it explicitly or use --repo.")
-    pr_map = json.loads(args.pr_map)
+    try:
+        pr_map = json.loads(args.pr_map)
+    except (json.JSONDecodeError, ValueError) as e:
+        sys.exit(f"error: --pr-map is not valid JSON: {e}")
 
     rows = collect_logs(pdir)
     if not rows:

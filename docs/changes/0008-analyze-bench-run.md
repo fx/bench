@@ -78,7 +78,7 @@ This change MUST NOT be started until all of 0001–0007 are merged. It is the t
 
 ## Tasks
 
-- [ ] Add the `analyze-bench-run` skill to the repo (`.claude/skills/analyze-bench-run/SKILL.md` + `scripts/analyze.py`)
+- [x] Add the `analyze-bench-run` skill to the repo (`.claude/skills/analyze-bench-run/SKILL.md` + `scripts/analyze.py`)
 - [ ] After 0001–0007 are merged, run `python3 .claude/skills/analyze-bench-run/scripts/analyze.py` with an appropriate `--pr-map`, capturing the full output
 - [ ] Append the captured output to the end of `README.md` under a "Bench Run Analysis" section with a one-paragraph preamble and the list-price/estimate caveat
 - [ ] Verify the README renders correctly and the documentation index links are intact
